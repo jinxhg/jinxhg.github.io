@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>jinxian的笔记</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="jinxian的笔记">
+<meta property="og:url" content="https://jinxhg.github.io/index.html">
+<meta property="og:site_name" content="jinxian的笔记">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="jinxian">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="jinxian的笔记" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">jinxian的笔记</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">新时代农民工</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://jinxhg.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-Mit-6.828/环境搭建" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/Mit-6.828/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="article-date">
+  <time class="dt-published" datetime="2022-01-08T02:57:32.000Z" itemprop="datePublished">2022-01-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Mit-6-288/">Mit-6.288</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/Mit-6.828/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">Mit-6.828环境搭建</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <!-- toc -->
+<h2 id="虚拟机准备"><a href="#虚拟机准备" class="headerlink" title="虚拟机准备"></a>虚拟机准备</h2><p>VirtualBox<br>CentOS-7-i386-Minimal-2009.iso<br>配置网络: NAT网络<br>ssr代理<br>配置虚拟机git代理，clone源码</p>
+<h2 id="安装必要软件"><a href="#安装必要软件" class="headerlink" title="安装必要软件"></a>安装必要软件</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">yum groupinstall <span class="string">&quot;Development Tools&quot;</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">yum -y install vim*</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">yum -y install bzip2</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">yum -y install git</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">yum -y install zlib zlib-devel</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">yum -y install glib2 glib2-devel</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">yum -y install pixman-devel</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="clone课程专用的qemu源码"><a href="#clone课程专用的qemu源码" class="headerlink" title="clone课程专用的qemu源码"></a>clone课程专用的qemu源码</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git <span class="built_in">clone</span> https://github.com/mit-pdos/6.828-qemu.git qemu</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="编译安装qemu"><a href="#编译安装qemu" class="headerlink" title="编译安装qemu"></a>编译安装qemu</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">./configure --disable-kvm --disable-werror --prefix=/usr/local --target-list=<span class="string">&quot;i386-softmmu&quot;</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">make &amp;&amp; make install</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://jinxhg.github.io/Mit-6.828/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" data-id="cltx5i6kd00002wun9y2m56bf" data-title="Mit-6.828环境搭建" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mit-6-288/" rel="tag">Mit-6.288</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-virtual-box/netword-config" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/virtual-box/netword-config/" class="article-date">
+  <time class="dt-published" datetime="2021-10-19T03:26:52.000Z" itemprop="datePublished">2021-10-19</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/VirtualBox/">VirtualBox</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/virtual-box/netword-config/">VirtualBox网络配置</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <!-- toc -->
+<h2 id="VirtualBox连接的5种方式"><a href="#VirtualBox连接的5种方式" class="headerlink" title="VirtualBox连接的5种方式"></a>VirtualBox连接的5种方式</h2><ol>
+<li>NAT：虚拟机可以通过宿主机访问主机能够访问的一切网络，宿主机不能访问虚拟机，虚拟机之间不能访问</li>
+<li>NAT网络：在NAT的基础上，虚拟机之间搭建了局域网，可以实现虚拟机之间的相互访问</li>
+<li>桥接：相当于虚拟机与宿主机连接在同一局域网内，相对于宿主机可见，可以看成是一台连接的宿主机</li>
+<li>内部：虚拟机不能连外网</li>
+<li>仅主机(host-only)：虚拟机不能连外网，并且不互通</li>
+</ol>
+<h2 id="桥接模式"><a href="#桥接模式" class="headerlink" title="桥接模式"></a>桥接模式</h2><ol>
+<li>相当于虚拟机与宿主机连接在同一局域网内，相对于宿主机可见，可以看成是一台连接的宿主机。</li>
+<li>桥接模式每一台虚拟机都会占用一个真实的ip地址，会造成ip地址极大的浪费。</li>
+<li>如何设置固定ip，使用桥接模式经常会造成局域网内ip冲突。</li>
+</ol>
+<h3 id="桥接模式配置"><a href="#桥接模式配置" class="headerlink" title="桥接模式配置"></a>桥接模式配置</h3><img src="/virtual-box/netword-config/%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F%E9%85%8D%E7%BD%AE.jpg" class="" title="[桥接模式配置]">
+<ol>
+<li>连接方式：桥接网卡</li>
+<li>界面名称：正在使用的网卡</li>
+<li>启动虚拟机，配置linux网络：vi &#x2F;etc&#x2F;sysconfig&#x2F;network-scripts&#x2F;ifcfg-&lt;系统网络名称&gt;，配置动态ip：BOOTPROTO&#x3D;dhcp， 开机启动网卡：ONBOOT&#x3D;yes<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">TYPE=Ethernet</span><br><span class="line">PROXY_METHOD=none</span><br><span class="line">BROWSER_ONLY=no</span><br><span class="line">BOOTPROTO=dhcp</span><br><span class="line">DEFROUTE=yes</span><br><span class="line">IPV4_FAILURE_FATAL=no</span><br><span class="line">IPV6INIT=yes</span><br><span class="line">IPV6_AUTOCONF=yes</span><br><span class="line">IPV6_DEFROUTE=yes</span><br><span class="line">IPV6_FAILURE_FATAL=no</span><br><span class="line">IPV6_ADDR_GEN_MODE=stable-privacy</span><br><span class="line">NAME=enp0s3</span><br><span class="line">UUID=6a7d29f8-3521-4764-bf44-eab3f8b3fe42</span><br><span class="line">DEVICE=enp0s3</span><br><span class="line">ONBOOT=yes</span><br></pre></td></tr></table></figure></li>
+<li>然后启动该网络设置<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ systemctl restart network</span><br><span class="line">或</span><br><span class="line">$ service network restart</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="NAT网络"><a href="#NAT网络" class="headerlink" title="NAT网络"></a>NAT网络</h2><ol>
+<li>可以固定虚拟机ip而不导致ip冲突</li>
+<li>虚拟机可以访问外网和内网虚拟机，宿主机可以访问虚拟机</li>
+<li>方便搭建用于学习的集群</li>
+</ol>
+<h3 id="1-添加VirtualBox网卡"><a href="#1-添加VirtualBox网卡" class="headerlink" title="1. 添加VirtualBox网卡"></a>1. 添加VirtualBox网卡</h3><p>管理&#x3D;&#x3D;》全局设定&#x3D;&#x3D;》网络，添加网卡</p>
+<img src="/virtual-box/netword-config/VirtualBox%E6%B7%BB%E5%8A%A0%E7%BD%91%E5%8D%A1-1.png" class="" title="[VirtualBox添加网卡]">
+<img src="/virtual-box/netword-config/VirtualBox%E6%B7%BB%E5%8A%A0%E7%BD%91%E5%8D%A1-2.png" class="" title="[VirtualBox添加网卡]">
+
+<h3 id="2-设置虚拟机网络"><a href="#2-设置虚拟机网络" class="headerlink" title="2. 设置虚拟机网络"></a>2. 设置虚拟机网络</h3><p>选择需配置虚拟机，设置&#x3D;&#x3D;》网络&#x3D;&#x3D;网卡1，连接方式选择“NAT网络”，界面名称选择正在使用的网卡</p>
+<img src="/virtual-box/netword-config/%E9%85%8D%E7%BD%AE%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%BD%91%E7%BB%9C.png" class="" title="[配置虚拟机网络]">
+
+<h3 id="3-启动虚拟机，配置网络"><a href="#3-启动虚拟机，配置网络" class="headerlink" title="3. 启动虚拟机，配置网络"></a>3. 启动虚拟机，配置网络</h3><p>vi &#x2F;etc&#x2F;sysconfig&#x2F;network-scripts&#x2F;ifcfg-&lt;系统网络名称&gt;，修改BOOTPROTO&#x3D;static，并添加以下配置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">BOOTPROTO=static</span><br><span class="line">ONBOOT=yes</span><br><span class="line">IPADDR=10.0.2.14</span><br><span class="line">NETMASK=255.255.255.0</span><br><span class="line">GATEWAY=10.0.2.1</span><br><span class="line">DNS1=114.114.114.114</span><br><span class="line">DNS2=8.8.8.8</span><br></pre></td></tr></table></figure>
+<p>然后启动该网络设置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ systemctl restart network</span><br><span class="line">或</span><br><span class="line">$ service network restart</span><br></pre></td></tr></table></figure>
+<p>此时虚拟机已经可以访问外网</p>
+<h3 id="4-宿主机访问虚拟机，配置VirtualBox网卡端口映射"><a href="#4-宿主机访问虚拟机，配置VirtualBox网卡端口映射" class="headerlink" title="4. 宿主机访问虚拟机，配置VirtualBox网卡端口映射"></a>4. 宿主机访问虚拟机，配置VirtualBox网卡端口映射</h3><p>虚拟机采用NAT网络配置，虚拟机的ip相对于宿主机是隐藏的。想要使得宿主机对虚拟机进行访问，需要配置端口映射，即通过将宿主机的一个端口(localhost:port)与虚拟机的ssh端口进行连接，宿主机通过访问宿主机端口(localhost:port)实现对虚拟机ssh端口(ip:22)的访问。<br>注意，这个端口是一一对应的。因为整个虚拟机子网10.0.2.0&#x2F;24网段对主机是隐藏的，主机要想访问虚拟机子网中的任意一台虚拟机，就必须建立一个独立的宿主机端口与虚拟机的ssh端口进行连接。<br>配置NAT端口映射，如下：</p>
+<img src="/virtual-box/netword-config/%E9%85%8D%E7%BD%AEVirtualBox%E7%BD%91%E5%8D%A1%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84.jpg" class="" title="[配置VirtualBox网卡端口映射]">
+
+<p>宿主机使用ssh命令连接虚拟机</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -p 23330 root@localhost</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-虚拟机之间连接"><a href="#5-虚拟机之间连接" class="headerlink" title="5. 虚拟机之间连接"></a>5. 虚拟机之间连接</h3><p>虚拟机之间使用ip地址就可以了，因为虚拟机之间由虚拟局域网连接。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://jinxhg.github.io/virtual-box/netword-config/" data-id="cltx5i6l2000y2wundv4y0ccj" data-title="VirtualBox网络配置" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VirtualBox/" rel="tag">VirtualBox</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VirtualBox%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/" rel="tag">VirtualBox网络配置</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-spring/spring-project" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/spring/spring-project/" class="article-date">
+  <time class="dt-published" datetime="2021-06-19T01:37:58.000Z" itemprop="datePublished">2021-06-19</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/spring/">spring</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/spring/spring-project/">spring project</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="spring-retry"><a href="#spring-retry" class="headerlink" title="spring retry"></a>spring retry</h2><p>实现重试和熔断功能,相同功能框架,还有Google的Guava Retrying<br>问题</p>
+<ol>
+<li>同步重试和异步重试</li>
+<li>重试能不能加入线程池</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://jinxhg.github.io/spring/spring-project/" data-id="cltx5i6l0000r2wunf43ndt3z" data-title="spring project" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/" rel="tag">spring</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring-project/" rel="tag">spring project</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-spring/spring源码" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/spring/spring%E6%BA%90%E7%A0%81/" class="article-date">
+  <time class="dt-published" datetime="2020-12-15T07:29:47.000Z" itemprop="datePublished">2020-12-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/spring/">spring</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/spring/spring%E6%BA%90%E7%A0%81/">spring源码</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <!-- toc -->
+<h3 id="方法论"><a href="#方法论" class="headerlink" title="方法论"></a>方法论</h3><ol>
+<li>看源码注解,英文注解看不懂可以安装idea翻译插件</li>
+<li>先看脉络,后面有兴趣有时间再深究</li>
+<li>大胆猜测</li>
+<li>坚持</li>
+</ol>
+<h3 id="编程式使用IOC容器"><a href="#编程式使用IOC容器" class="headerlink" title="编程式使用IOC容器"></a>编程式使用IOC容器</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">ClassPathResource</span> <span class="variable">res</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ClassPathResource</span>(<span class="string">&quot;beans.xml&quot;</span>);</span><br><span class="line"><span class="type">DefaultListableBeanFactory</span> <span class="variable">factory</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">DefaultListableBeanFactory</span>();</span><br><span class="line"><span class="type">XmlBeanDefinitionReader</span> <span class="variable">reader</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">XmlBeanDefinitionReader</span>(factory);</span><br><span class="line">reader.loadBeanDefinitions(res);</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://jinxhg.github.io/spring/spring%E6%BA%90%E7%A0%81/" data-id="cltx5i6l0000s2wund9mw95xh" data-title="spring源码" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-spring/spring-idea" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/spring/spring-idea/" class="article-date">
+  <time class="dt-published" datetime="2020-12-14T08:13:01.000Z" itemprop="datePublished">2020-12-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/spring/">spring</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/spring/spring-idea/">spring+idea</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <!-- toc -->
+<h3 id="idea2018-3-spring5-0-x"><a href="#idea2018-3-spring5-0-x" class="headerlink" title="idea2018.3+spring5.0.x"></a>idea2018.3+spring5.0.x</h3><p>1.配置maven库国内镜像</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">buildscript &#123;</span><br><span class="line">	repositories &#123;</span><br><span class="line">		mavenLocal()</span><br><span class="line">		mavenCentral()</span><br><span class="line">		maven &#123; url &#x27;https://maven.aliyun.com/nexus/content/groups/public/&#x27; &#125;</span><br><span class="line">		maven &#123; url &#x27;https://maven.aliyun.com/nexus/content/repositories/jcenter&#x27;&#125;</span><br><span class="line">		maven &#123; url &quot;https://repo.spring.io/plugins-release&quot; &#125;</span><br><span class="line">	&#125;</span><br><span class="line">	dependencies &#123;</span><br><span class="line">		classpath(&quot;io.spring.gradle:propdeps-plugin:0.0.8&quot;)</span><br><span class="line">		classpath(&quot;io.spring.gradle:docbook-reference-plugin:0.3.1&quot;)</span><br><span class="line">		classpath(&quot;org.asciidoctor:asciidoctorj-pdf:1.5.0-alpha.16&quot;)</span><br><span class="line">		classpath(&quot;org.asciidoctor:asciidoctorj-epub3:1.5.0-alpha.7&quot;)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2.spring5.0x与idea的gradle插件版本差异<br>当idea版本过高,会报如下错误,可以使用idea2018.3版本</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">The getTestClassesDir() method has been deprecated and is scheduled to be removed in Gradle 5.0. Please use the getTestClassesDirs() method instead.</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://jinxhg.github.io/spring/spring-idea/" data-id="cltx5i6kz000n2wunbnkvg944" data-title="spring+idea" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-jenkins/jenkins" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/jenkins/jenkins/" class="article-date">
+  <time class="dt-published" datetime="2020-12-04T01:56:09.000Z" itemprop="datePublished">2020-12-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/jenkins/">jenkins</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/jenkins/jenkins/">jenins</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <!-- toc -->
+<h3 id="文档地址"><a href="#文档地址" class="headerlink" title="文档地址"></a>文档地址</h3><p>中文文档: <a target="_blank" rel="noopener" href="https://www.jenkins.io/zh/doc/">https://www.jenkins.io/zh/doc/</a></p>
+<h3 id="安装问题"><a href="#安装问题" class="headerlink" title="安装问题"></a>安装问题</h3><p>报错</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target</span><br><span class="line">...</span><br><span class="line">Caused: sun.security.validator.ValidatorException: PKIX path building failed</span><br><span class="line">...</span><br><span class="line">Caused: javax.net.ssl.SSLHandshakeException</span><br></pre></td></tr></table></figure>
+<p>jenkins的插件镜像地址为https,缺少证书所有报错,可能是jdk证书有问题,这时候可以重新下载一个jdk试一下</p>
+<h3 id="离线安装插件"><a href="#离线安装插件" class="headerlink" title="离线安装插件"></a>离线安装插件</h3><p>当服务器没有外网的时候,可以先在本地安装插件,然后把本地插件复制到服务器上,<br>wndows本地插件安装地址C:\Users\当前账号.jenkins\plugins</p>
+<h3 id="权限角色管理插件"><a href="#权限角色管理插件" class="headerlink" title="权限角色管理插件"></a>权限角色管理插件</h3><p>插件名称: Role-based Authorization Strategy, Role Strategy Plugin插件可以对构建的项目进行授权管理,<br>让不同的用户管理不同的项目,将不同环境的权限进行区分;该插件可以很灵活的根据需求来进行划分权限,包括正则匹配等</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://jinxhg.github.io/jenkins/jenkins/" data-id="cltx5i6kv000a2wun2f8ve5mu" data-title="jenins" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jenkins/" rel="tag">jenkins</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2/" rel="tag">自动化部署</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-gradle/gradle随记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/gradle/gradle%E9%9A%8F%E8%AE%B0/" class="article-date">
+  <time class="dt-published" datetime="2020-11-25T15:04:15.000Z" itemprop="datePublished">2020-11-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/gradle/">gradle</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/gradle/gradle%E9%9A%8F%E8%AE%B0/">gradle随记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <!-- toc -->
+<h3 id="GradleW"><a href="#GradleW" class="headerlink" title="GradleW"></a>GradleW</h3><p>简化Gradle的安装和部署;不同版本的项目可能需要不同版本的Gradle,手工部署比较麻烦,而且可能产生冲突</p>
+<h3 id="Gradle包损坏"><a href="#Gradle包损坏" class="headerlink" title="Gradle包损坏"></a>Gradle包损坏</h3><p>报错message</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Cause: zip END header not found</span><br></pre></td></tr></table></figure>
+<p>当出现该错误提示的时候,表示Gradle包损坏,需要删除Gradle包重新下载;同样的,使用Gradlew提示该错误时,表示Gradlew包损坏,需要找到使用对应版本的Gradlew包删除重新下载,如果找不到,可以用everything搜索Gradle-版本号-bin.zip然后进行删除</p>
+<h3 id="GRADLE-USER-HOME和idea的gradle-user-home"><a href="#GRADLE-USER-HOME和idea的gradle-user-home" class="headerlink" title="GRADLE_USER_HOME和idea的gradle user home"></a>GRADLE_USER_HOME和idea的gradle user home</h3><p>GRADLE_USER_HOME所指目录存放的是Gradle的文件,需要配置idea的gradle user home和GRADLE_USER_HOME一样;<br>idea的gradle user home是当你点击idea图形按钮时,所用到的配置;如果idea使用GradleW,并且gradle user home指向的是本地Gradle根目录,那么当你点击idea图形按钮的时候,实际上是运行本地Gradle的命令;</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://jinxhg.github.io/gradle/gradle%E9%9A%8F%E8%AE%B0/" data-id="cltx5i6kt00062wun38hj4w2v" data-title="gradle随记" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gradle/" rel="tag">gradle</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-maven/maven随记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/maven/maven%E9%9A%8F%E8%AE%B0/" class="article-date">
+  <time class="dt-published" datetime="2020-11-25T15:03:43.000Z" itemprop="datePublished">2020-11-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/maven/">maven</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/maven/maven%E9%9A%8F%E8%AE%B0/">maven</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <!-- toc -->
+<h3 id="安装maven-wrapper"><a href="#安装maven-wrapper" class="headerlink" title="安装maven wrapper"></a>安装maven wrapper</h3><p>mvn -N io.takari:maven:wrapper -Dmaven&#x3D;{maven版本}</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn -N io.takari:maven:wrapper -Dmaven=3.6.3</span><br></pre></td></tr></table></figure>
+<h3 id="idea项目导入依赖报错可能问题解决"><a href="#idea项目导入依赖报错可能问题解决" class="headerlink" title="idea项目导入依赖报错可能问题解决"></a>idea项目导入依赖报错可能问题解决</h3><p>删除项目的.idea文件夹和所有模块的.iml文件,然后重新导入项目</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://jinxhg.github.io/maven/maven%E9%9A%8F%E8%AE%B0/" data-id="cltx5i6kx000f2wungmx6g7nr" data-title="maven" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/maven/" rel="tag">maven</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/maven-wrapper/" rel="tag">maven wrapper</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-nginx/nginx-begin" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/nginx/nginx-begin/" class="article-date">
+  <time class="dt-published" datetime="2020-09-17T01:50:48.000Z" itemprop="datePublished">2020-09-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/nginx/">nginx</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/nginx/nginx-begin/">nginx beginner</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://jinxhg.github.io/nginx/nginx-begin/" data-id="cltx5i6kx000h2wun6aved1lx" data-title="nginx beginner" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-book/书单" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/book/%E4%B9%A6%E5%8D%95/" class="article-date">
+  <time class="dt-published" datetime="2020-09-03T03:10:31.000Z" itemprop="datePublished">2020-09-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E4%B9%A6%E5%8D%95/">书单</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/book/%E4%B9%A6%E5%8D%95/">书单</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <!-- toc -->
+<h3 id="数字电路-非必读"><a href="#数字电路-非必读" class="headerlink" title="数字电路(非必读)"></a>数字电路(非必读)</h3><p>《数字电子技术基础(第5版)》，作者: 阎石，PS：大学教程，推荐<br>《数字设计和计算机体系结构(原书第2版)》，作者: （美国）戴维·莫尼·哈里斯（David Money Harris） &#x2F; （美国）莎拉 L.哈里斯（Sarah L.Harris），PS：选读</p>
+<h3 id="cpu-非必读"><a href="#cpu-非必读" class="headerlink" title="cpu(非必读)"></a>cpu(非必读)</h3><p>《手把手教你设计CPU——RISC-V处理器篇》，作者: 胡振波，PS：选择浏览<br>《芯片制造——半导体工艺制程实用教程(第6版)》，作者: （美）Peter Van Zant，PS：选择浏览</p>
+<h3 id="计算机体系结构"><a href="#计算机体系结构" class="headerlink" title="计算机体系结构"></a>计算机体系结构</h3><p>《计算机体系结构:量化研究方法(第5版)》，作者: （美） John L. Hennessy &#x2F; （美） David A. Patterson，PS：选读<br>《计算机系统要素：从零开始构建现代计算机》，作者: Noam Nisan &#x2F; Shimon Schocken，PS：选读</p>
+<h3 id="计算机组成原理"><a href="#计算机组成原理" class="headerlink" title="计算机组成原理"></a>计算机组成原理</h3><p>《计算机组成与设计：硬件&#x2F;软件接口(第5版)》，作者: 戴维 A.帕特森 (David A.Patterson) &#x2F; 约翰 L.亨尼斯 (John L.Hennessy)，PS：选读</p>
+<h3 id="计算机系统"><a href="#计算机系统" class="headerlink" title="计算机系统"></a>计算机系统</h3><p>《深入理解计算机系统(第3版)》，作者：Computer Systems: A Programmer’s Perspective，PS：经典，推荐阅读</p>
+<h3 id="计算机操作系统"><a href="#计算机操作系统" class="headerlink" title="计算机操作系统"></a>计算机操作系统</h3><p>《现代操作系统（原书第4版）》，作者：(荷)Andrew S. Tanenbaum&#x2F;(荷)Herbert Bos，PS：推荐</p>
+<h3 id="汇编语言"><a href="#汇编语言" class="headerlink" title="汇编语言"></a>汇编语言</h3><p>《汇编语言（第四版）》，作者：王爽，PS：通俗易懂，推荐阅读</p>
+<h3 id="编译原理"><a href="#编译原理" class="headerlink" title="编译原理"></a>编译原理</h3><h3 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h3><h3 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h3><p>《计算机网络++自顶向下方法.(第6版)》，PS：推荐<br>《TCP IP详解 卷1：协议》，PS：有难度，有一定基础再阅读</p>
+<h3 id="网络编程"><a href="#网络编程" class="headerlink" title="网络编程"></a>网络编程</h3><p>《TCP_IP网络编程》，作者：尹圣雨（韩），PS：选读<br>《Java网络编程精解》，作者：孙卫琴，PS：大学教程</p>
+<h3 id="离散数学"><a href="#离散数学" class="headerlink" title="离散数学"></a>离散数学</h3><p>《离散数学及其应用（原书第8版）》，作者：肯尼思 H.罗森 (Kenneth H.Rosen)</p>
+<h3 id="数据结构和算法"><a href="#数据结构和算法" class="headerlink" title="数据结构和算法"></a>数据结构和算法</h3><p>《算法导论第3版》，PS：推荐</p>
+<h3 id="并发编程-多线程"><a href="#并发编程-多线程" class="headerlink" title="并发编程, 多线程"></a>并发编程, 多线程</h3><p>《UNIX网络编程，卷一》，作者：史蒂文斯&#x2F;芬纳&#x2F;鲁道夫<br>《并行程序设计导论》，作者：Peter Pacheco<br>《Linux多线程服务端编程》，作者：陈硕，<br>《Java并发编程实战》，作者：Brian Goetz&#x2F;Tim Peierls&#x2F;Joshua Bloch&#x2F;Joseph Bowbeer&#x2F;David Holmes&#x2F;Doug Lea，PS：推荐</p>
+<h3 id="JVM虚拟机"><a href="#JVM虚拟机" class="headerlink" title="JVM虚拟机"></a>JVM虚拟机</h3><p>《深入理解Java虚拟机（第3版）》，作者：周志明</p>
+<h3 id="数据存储"><a href="#数据存储" class="headerlink" title="数据存储"></a>数据存储</h3><p>《数据密集型应用系统设计》，作者：Martin Kleppmann</p>
+<h3 id="C语言"><a href="#C语言" class="headerlink" title="C语言"></a>C语言</h3><p>《C Primer Plus（第6版）》，作者：普拉达(Stephen Prata)</p>
+<h3 id="JAVA语言"><a href="#JAVA语言" class="headerlink" title="JAVA语言"></a>JAVA语言</h3><p>《Effective Java（第三版）》，作者：(美)Joshua Bloch<br>《Java编程思想（第4版）》，作者：(美)Bruce Eckel<br>《JAVA核心技术（卷一）》<br>《JAVA核心技术（卷二）》</p>
+<h3 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h3><p>《设计模式：可复用面向对象软件的基础》，作者：(美)(四人帮)Erich Gamma&#x2F;Richard Helm&#x2F;Ralph Johnson&#x2F;John Vlissides<br>《大话设计模式》，作者：程杰，PS：通俗易懂</p>
+<h3 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h3><h3 id="分布式"><a href="#分布式" class="headerlink" title="分布式"></a>分布式</h3><h3 id="Spring-SpringBoot"><a href="#Spring-SpringBoot" class="headerlink" title="Spring, SpringBoot"></a>Spring, SpringBoot</h3><h3 id="面试"><a href="#面试" class="headerlink" title="面试"></a>面试</h3><p>cc150《程序员面试金典》<br>《剑指offer》</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://jinxhg.github.io/book/%E4%B9%A6%E5%8D%95/" data-id="cltx5i6kh00012wun25dsdmuo" data-title="书单" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%B9%A6%E5%8D%95/" rel="tag">书单</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Mit-6-288/">Mit-6.288</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/VirtualBox/">VirtualBox</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/gradle/">gradle</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/jenkins/">jenkins</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/maven/">maven</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/nginx/">nginx</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/oop/">oop</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/server/">server</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring/">spring</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/">web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B9%A6%E5%8D%95/">书单</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BA%BF%E7%A8%8B%E6%B1%A0/">线程池</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mit-6-288/" rel="tag">Mit-6.288</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VirtualBox/" rel="tag">VirtualBox</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VirtualBox%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/" rel="tag">VirtualBox网络配置</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cas/" rel="tag">cas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/" rel="tag">gradle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jdk/" rel="tag">jdk</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jenkins/" rel="tag">jenkins</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux%E5%91%BD%E4%BB%A4/" rel="tag">linux命令</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/maven/" rel="tag">maven</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/maven-wrapper/" rel="tag">maven wrapper</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/oop/" rel="tag">oop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/server/" rel="tag">server</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/" rel="tag">spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring-project/" rel="tag">spring project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/" rel="tag">web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B9%A6%E5%8D%95/" rel="tag">书单</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/" rel="tag">单点登录</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%BF%E7%A8%8B%E6%B1%A0/" rel="tag">线程池</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2/" rel="tag">自动化部署</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B7%A8%E5%9F%9F/" rel="tag">跨域</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Mit-6-288/" style="font-size: 10px;">Mit-6.288</a> <a href="/tags/VirtualBox/" style="font-size: 10px;">VirtualBox</a> <a href="/tags/VirtualBox%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/" style="font-size: 10px;">VirtualBox网络配置</a> <a href="/tags/cas/" style="font-size: 10px;">cas</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/jdk/" style="font-size: 10px;">jdk</a> <a href="/tags/jenkins/" style="font-size: 10px;">jenkins</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/linux%E5%91%BD%E4%BB%A4/" style="font-size: 10px;">linux命令</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/maven-wrapper/" style="font-size: 10px;">maven wrapper</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/oop/" style="font-size: 10px;">oop</a> <a href="/tags/server/" style="font-size: 10px;">server</a> <a href="/tags/spring/" style="font-size: 10px;">spring</a> <a href="/tags/spring-project/" style="font-size: 10px;">spring project</a> <a href="/tags/web/" style="font-size: 20px;">web</a> <a href="/tags/%E4%B9%A6%E5%8D%95/" style="font-size: 10px;">书单</a> <a href="/tags/%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/" style="font-size: 10px;">单点登录</a> <a href="/tags/%E7%BA%BF%E7%A8%8B%E6%B1%A0/" style="font-size: 10px;">线程池</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2/" style="font-size: 10px;">自动化部署</a> <a href="/tags/%E8%B7%A8%E5%9F%9F/" style="font-size: 10px;">跨域</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/Mit-6.828/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">Mit-6.828环境搭建</a>
+          </li>
+        
+          <li>
+            <a href="/virtual-box/netword-config/">VirtualBox网络配置</a>
+          </li>
+        
+          <li>
+            <a href="/spring/spring-project/">spring project</a>
+          </li>
+        
+          <li>
+            <a href="/spring/spring%E6%BA%90%E7%A0%81/">spring源码</a>
+          </li>
+        
+          <li>
+            <a href="/spring/spring-idea/">spring+idea</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 jinxian<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
